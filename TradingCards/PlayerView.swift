@@ -21,8 +21,10 @@ struct PlayerView: View {
         NavigationStack{
             //Blue Background
             ZStack{
+                
                 Color.blue
-                    .ignoresSafeArea()
+                    .ignoresSafeArea(edges:.top)
+                    
                 //Image and Background
                 VStack{
                     ZStack{
@@ -45,57 +47,67 @@ struct PlayerView: View {
                         }
                     }
                     .padding(.bottom,25)
-                    //List View
-                    
-                    List{
-                        Text("Statistics")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        HStack{
-                            Text("Name: "+player)
-                            Spacer()
-                        }
-                        .padding(.leading,20)
-                        HStack{
-                            Text("Age: "+"\(age)")
-                            Spacer()
-                        }
-                        .padding(.leading,20)
-                        HStack{
-                            Text("Rebound Rating: "+"\(reboundScores)")
-                            Spacer()
-                        }.padding(.leading,20)
-                        HStack{ Text("Assist Rating:  "+"\(assistScores)")
-                            Spacer()
-                        }.padding(.leading,20)
-                        HStack{
-                            Text("Three Point Scores: "+"\(threePointScores)")
-                            Spacer()
-                        }.padding(.leading,20)
-                        HStack{
-                            Text("Overall Scores: "+"\(overallScores)")
-                            Spacer()
-                            
-                        }.padding(.leading,20 )
+                    //Bottom half "Statistics
+                    ScrollView(.vertical){
                         VStack{
-                            Text("Description: ")
+                            Text("Statistics")
+                                .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .font(.system(size: 25))
-                            Text(Description)
-                        }
-                        
+                                .foregroundColor(.yellow)
+                            //Added another Vstack to make the whole top part of the Statistics into an aggregate part so that it can be modified as one sector
+                            VStack{
+                                HStack{
+                                    Text("Name: "+player)
+                                        .foregroundColor(.green)
+                                    Spacer()
+                                }
+                                Divider()
+                                HStack{
+                                    Text("Age: "+"\(age)")
+                                        .foregroundColor(.orange)
+                                    Spacer()
+                                }
+                                Divider()
+                                HStack{
+                                    Text("Rebound Rating: "+"\(reboundScores)")
+                                        .foregroundColor(.red)
+                                    Spacer()
+                                }
+                                Divider()
+                                HStack{ Text("Assist Rating:  "+"\(assistScores)")
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
+                                Divider()
+                                HStack{
+                                    Text("Three Point Scores: "+"\(threePointScores)")
+                                        .foregroundColor(.purple)
+                                    Spacer()
+                                }
+                                Divider()
+                                HStack{
+                                    Text("Overall Scores: "+"\(overallScores)")
+                                        .foregroundColor(.blue)
+                                    Spacer()
+                                }
+                            }
+                            // added padding to the top part of the Statistics page, just before descriptions
+                            .padding(.bottom,40)
+                            .padding(.leading,20)
+                            VStack{
+                                Text("Description: ")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 25))
+                                Text(Description)
+                            }
+                        }.background(Color.white) //changed background color of the whole statistics page into white
                     }
-                    .scrollContentBackground(.hidden)
-                    
-                    
                 }
-                
-                
-            }
+            }// the Bracket for the BIG Vstack just before Nav Stack
             .navigationTitle(player)
-        }
-        
+            
+        }//Nav stack
+
     }
     
 }
