@@ -9,7 +9,20 @@ import SwiftUI
 
 struct LandingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack{
+            List(allplayers) { currentPlayer in
+                
+                NavigationLink {
+                    PlayerView(player: currentPlayer)
+                } label: {
+                    Navigation(providedPlayer: currentPlayer)
+                }
+                
+            }
+            .navigationTitle("Golden States Warriors")
+        }
+        
     }
 }
 

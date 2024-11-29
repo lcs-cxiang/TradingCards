@@ -14,32 +14,38 @@ struct PlayerView: View {
         NavigationStack{
             //Blue Background
             ZStack{
-                
                 Color.blue
                     .ignoresSafeArea(edges:.top)
                     
                 //Image and Background
                 VStack{
-                    ZStack{
-                        Color.white
-                            .frame(width:360,height:430)
-                        Color.yellow
-                            .frame(width:340,height:410)
-                        Image(player.imageName)
-                            .resizable()
-                            .frame(width:320,height:390)
-                        HStack{
-                            Spacer()
-                            VStack{
+                    VStack {
+                        
+                        LinearGradient(gradient: Gradient(colors:[Color.yellow, Color.blue]), startPoint: .leading, endPoint: .trailing)
+                                                .ignoresSafeArea()
+                            .ignoresSafeArea(edges:.top)
+                        ZStack{
+                            Color.white
+                                .frame(width:360,height:430)
+                            Color.yellow
+                                .frame(width:340,height:410)
+                            Image(player.imageName)
+                                .resizable()
+                                .frame(width:405,height:390)
+                                .offset(y:10)
+                            HStack{
                                 Spacer()
-                                Image("gstate")
-                                    .resizable()
-                                    .frame(width:200,height:120)
-                                    .offset(x:50,y:40)
+                                VStack{
+                                    Spacer()
+                                    Image("gstate")
+                                        .resizable()
+                                        .frame(width:200,height:120)
+                                        .offset(x:50,y:40)
+                                }
                             }
                         }
+                        .padding(.bottom,25)
                     }
-                    .padding(.bottom,25)
                     //Bottom half "Statistics
                     ScrollView(.vertical){
                         VStack{
@@ -100,7 +106,6 @@ struct PlayerView: View {
             .navigationTitle(player.playername)
             
         }//Nav stack
-
     }
     
 }
