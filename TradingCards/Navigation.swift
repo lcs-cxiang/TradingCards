@@ -1,26 +1,26 @@
+////
+////  Player.swift
+////  TradingCards
+////
+////  Created by Chujun Xiang on 2024-11-28.
+////
 //
-//  Player.swift
-//  TradingCards
+//import SwiftUI
 //
-//  Created by Chujun Xiang on 2024-11-28.
+//struct Navigation: View {
+//    
+//    let providedPlayer: PlayerView
+//    
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            Text(providedPlayer.name)
+//                .font(.largeTitle)
+//            Text(providedPlayer.description)
+//        }
+//    }
+//}
 //
-
-import SwiftUI
-
-struct Navigation: View {
-    
-    let providedPlayer: 
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(providedPlayer.name)
-                .font(.largeTitle)
-            Text(providedPlayer.description)
-        }
-    }
-}
-
-#Preview {
-    Navigation(providedPlayer: )
-        .padding()
-}
+//#Preview {
+//    Navigation(providedPlayer: )
+//        .padding()
+//}
