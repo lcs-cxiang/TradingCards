@@ -14,14 +14,14 @@ struct PlayerView: View {
         NavigationStack{
             //Blue Background
             ZStack{
-                Color.blue
+                LinearGradient(gradient: Gradient(colors:[Color.yellow, Color.blue,Color.white]), startPoint: .leading, endPoint: .trailing)
                     .ignoresSafeArea(edges:.top)
                     
                 //Image and Background
                 VStack{
                     VStack {
                         
-                        LinearGradient(gradient: Gradient(colors:[Color.yellow, Color.blue]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors:[Color.yellow, Color.blue,Color.white]), startPoint: .leading, endPoint: .trailing)
                                                 .ignoresSafeArea()
                             .ignoresSafeArea(edges:.top)
                         ZStack{
@@ -31,10 +31,28 @@ struct PlayerView: View {
                                 .frame(width:340,height:410)
                             Image(player.imageName)
                                 .resizable()
-                                .frame(width:405,height:390)
+                                .frame(width:420,height:370)
                                 .offset(y:10)
                             HStack{
-                                Spacer()
+                                VStack{
+                                    Star()
+                                        .fill(
+                                            LinearGradient(colors: [.yellow, .blue], startPoint: .top, endPoint: .bottom)
+                                        )
+                                        .aspectRatio(1, contentMode: .fit)
+                                        .offset(x:40,y:20)
+                                        .shadow(radius: 5.0)
+                                    Star()
+                                        .fill(
+                                            LinearGradient(colors: [.yellow, .blue], startPoint: .top, endPoint: .bottom)
+                                        )
+                                        .aspectRatio(1, contentMode: .fit)
+                                        .offset(x:255,y:-110)
+                                        .shadow(radius: 5.0)
+                                
+                                    Spacer()
+                                }
+                                Spacer(minLength: 100)
                                 VStack{
                                     Spacer()
                                     Image("gstate")
@@ -52,41 +70,34 @@ struct PlayerView: View {
                             Text("Statistics")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .foregroundColor(.yellow)
                             //Added another Vstack to make the whole top part of the Statistics into an aggregate part so that it can be modified as one sector
                             VStack{
                                 HStack{
                                     Text("Name: "+player.playername)
-                                        .foregroundColor(.green)
                                     Spacer()
                                 }
                                 Divider()
                                 HStack{
                                     Text("Age: "+"\(player.age)")
-                                        .foregroundColor(.orange)
                                     Spacer()
                                 }
                                 Divider()
                                 HStack{
                                     Text("Rebound Rating: "+"\(player.reboundScores)")
-                                        .foregroundColor(.red)
                                     Spacer()
                                 }
                                 Divider()
                                 HStack{ Text("Assist Rating:  "+"\(player.assistScores)")
-                                        .foregroundColor(.gray)
                                     Spacer()
                                 }
                                 Divider()
                                 HStack{
                                     Text("Three Point Scores: "+"\(player.threePointScores)")
-                                        .foregroundColor(.purple)
                                     Spacer()
                                 }
                                 Divider()
                                 HStack{
                                     Text("Overall Scores: "+"\(player.overallScores)")
-                                        .foregroundColor(.blue)
                                     Spacer()
                                 }
                             }
@@ -99,7 +110,7 @@ struct PlayerView: View {
                                     .font(.system(size: 25))
                                 Text(player.Description)
                             }
-                        }.background(Color.white) //changed background color of the whole statistics page into white
+                        } .background( LinearGradient(gradient: Gradient(colors:[Color.yellow, Color.blue,Color.white]), startPoint: .leading, endPoint: .trailing))
                     }
                 }
             }// the Bracket for the BIG Vstack just before Nav Stack

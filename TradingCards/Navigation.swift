@@ -22,7 +22,11 @@ struct Navigation: View {
                     Text(providedPlayer.playername)
                         .font(.title)
                         .fontWeight(.semibold)
-                        
+                    HStack{
+                        Image(systemName: "star.fill")
+                        Image(systemName: "star.fill")
+                        Image(systemName: "star.fill")
+                    }
                 }
             }
         }

@@ -18,14 +18,15 @@ struct LandingView: View {
                 } label: {
                     Navigation(providedPlayer: currentPlayer)
                 }
-                
+                .background( LinearGradient(gradient: Gradient(colors:[Color.yellow, Color.blue,Color.white]), startPoint: .leading, endPoint: .trailing))
             }
             .navigationTitle("Golden States Warriors")
+           
         }
         
     }
 }
-
+  
 #Preview {
     LandingView()
 }
